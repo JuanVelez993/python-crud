@@ -1,10 +1,14 @@
 from typing import List
-from uuid import UUID
 from fastapi import FastAPI
-from models.user import Gender,Role,User
 from routes.user import userRoutes
+from docs import tags_metadata
 
-app=FastAPI()
+app=FastAPI(
+    title="REST API with FastAPI and MONGODB",
+    description="a simple rest api to learn the basics of FastAPI",
+    version="0.0.1",
+    openapi_tags=tags_metadata
+)
 app.include_router(userRoutes)
 
 
